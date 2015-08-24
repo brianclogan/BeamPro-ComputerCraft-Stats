@@ -19,3 +19,21 @@ That saves the JSON api that is required to use the APIs for Beam. Next is savin
 
 ![all apis saved](https://github.com/darkgoldblade01/BeamPro-ComputerCraft-Stats/blob/master/images/all-apis-saved.png)
 
+Now, type `edit beampro` and you will see the config at the top of the script. That is it! Edit them to your liking. If you have any trouble, let me know on Twitter! @darkgoldblade
+
+
+## Configuration ##
+When you go and edit the beampro file, you will see this at the top:
+
+`----- EDITABLE VARIABLES. Only edit the below.
+streamid = "darkgoldblade01" --- the beam.pro username
+SleepTime = 60 --- how often do you want to refresh in seconds? (default - 60)
+direction = "right" --- this is the direction the monitors are
+--- This next area is for deciding what you want on each line. The options are: followerCount, viewerCount, currentGame, and points
+line1 = "viewerCount" -- default viewerCount
+line2 = "followerCount" -- default followerCount
+line3 = "currentGame" -- default currentGame
+
+----- DO NOT EDIT BELOW THIS LINE! ----`
+
+You can edit them to your liking. Simple as that! 
