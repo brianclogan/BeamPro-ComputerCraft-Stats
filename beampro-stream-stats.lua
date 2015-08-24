@@ -17,7 +17,7 @@ function getViewerCount()
         lobj = json.decode(lstr)
         live = json.encodePretty(lobj.online)
         m.setCursorPos(1,1)
-        if live == "false" then
+        if live == false then
                 m.write(streamid)
                 m.setCursorPos(1,4)
                 m.write("Live Viewers: Offline")
