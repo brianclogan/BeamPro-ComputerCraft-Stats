@@ -9,7 +9,7 @@ By doing this, you are setup with the defaults used in the files. As long as the
 
 Open up the computer console. You should see CraftOS in the upper left corner. One you are ready, use the following lines in the terminal, and hit enter.
 
-`pastebin get Z1SE9DLQ json
+`pastebin get Z1SE9DLQ json`
 
 ![json api pastebin](https://github.com/darkgoldblade01/BeamPro-ComputerCraft-Stats/blob/master/images/json-api-pastebin.png)
 
