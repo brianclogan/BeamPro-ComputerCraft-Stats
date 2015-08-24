@@ -5,6 +5,8 @@ direction = "right" --- this is the direction the monitors are
 --- This next area is for deciding what you want on each line. The options are: followerCount, viewerCount, currentGame, and points
 line1 = "followerCount"
 line2 = "currentGame"
+
+
 ----- DO NOT EDIT BELOW THIS LINE! ----
 
 
@@ -16,7 +18,6 @@ function getFollowers()
         str = http.get("https://beam.pro/api/v1/channels/" .. streamid).readAll()
         obj = json.decode(str)
         follows = json.encodePretty(obj.numFollowers)
-        m.setCursorPos(1,3)    
         m.write("Beam Pro Followers: ")
         m.write(follows)
         return follows
@@ -26,16 +27,13 @@ function getViewerCount()
         lstr = http.get("https://beam.pro/api/v1/channels/" .. streamid).readAll()
         lobj = json.decode(lstr)
         live = json.encodePretty(lobj.online)
-        m.setCursorPos(1,1)
         if live == false then
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Current Viewers: Offline")
         else
                 m.setBackgroundColor(colors.yellow)
                 m.clear()
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Current Viewers: ")
                 m.write(lobj.viewersCurrent)          
         end
@@ -46,16 +44,13 @@ function getCurrentGame()
         lstr = http.get("https://beam.pro/api/v1/channels/" .. streamid).readAll()
         lobj = json.decode(lstr)
         live = json.encodePretty(lobj.online)
-        m.setCursorPos(1,1)
         if live == false then
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Currently Playing: Offline")
         else
                 m.setBackgroundColor(colors.yellow)
                 m.clear()
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Currently Playing: ")
                 m.write(lobj.type.name)          
         end
@@ -66,16 +61,13 @@ function getPoints()
         lstr = http.get("https://beam.pro/api/v1/channels/" .. streamid).readAll()
         lobj = json.decode(lstr)
         live = json.encodePretty(lobj.online)
-        m.setCursorPos(1,1)
         if live == false then
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Points: Offline")
         else
                 m.setBackgroundColor(colors.yellow)
                 m.clear()
                 m.write(streamid)
-                m.setCursorPos(1,4)
                 m.write("Currently Playing: ")
                 m.write(lobj.type.name)          
         end
@@ -89,18 +81,60 @@ while true do
         m.clear()
         m.write(streamid)
         m.setCursorPos(1,2)
-        local status, live = pcall(function () getViewerCount() end)
-        if status then
-                -- do nothing
+        
+        if line1 == "followerCount" then 
+            getFollowers()
+        else if line1 == "viewerCount" then
+            local status, live = pcall(function () getViewerCount() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end
+        else if line1 == "currentGame" then
+            local status, live = pcall(function () getCurrentGame() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end
+        else if line1 == "points" then
+            getPoints()
         else
-                m.write("Not Currently Streaming")
+            local status, live = pcall(function () getViewerCount() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end     
         end
-        local status, followsCount = pcall(function () getFollowers() end)
-        m.setCursorPos(1,3)    
-        if status then         
-                -- do nothing
-        else           
-                m.write("Beam Pro Followers: Loading...")
+
+        m.setCursorPos(1,3)
+        if line2 == "followerCount" then 
+            getFollowers()
+        else if line2 == "viewerCount" then
+            local status, live = pcall(function () getViewerCount() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end
+        else if line2 == "currentGame" then
+            local status, live = pcall(function () getCurrentGame() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end
+        else if line2 == "points" then
+            getPoints()
+        else
+            local status, live = pcall(function () getViewerCount() end)
+            if status then
+                    -- do nothing
+            else
+                    m.write("Not Currently Streaming")
+            end     
         end
         sleep(SleepTime)
 end
