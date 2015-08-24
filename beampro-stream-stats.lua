@@ -1,7 +1,11 @@
-streamid = "darkgoldblade01"
-SleepTime = 60
-os.loadAPI("json")
-local m = peripheral.wrap("right")
+----- EDITABLE VARIABLES. Only edit the below.
+streamid = "darkgoldblade01" --- the beam.pro username
+SleepTime = 60 --- how often do you want to refresh in seconds? (default - 60)
+direction = "right" --- this is the direction the monitors are
+
+----- DO NOT EDIT BELOW THIS LINE! ----
+os.loadAPI("json-api")
+local m = peripheral.wrap(direction)
 m.setCursorPos(1,1)
 function getFollowers()
         str = http.get("https://beam.pro/api/v1/channels/" .. streamid).readAll()
@@ -20,14 +24,14 @@ function getViewerCount()
         if live == false then
                 m.write(streamid)
                 m.setCursorPos(1,4)
-                m.write("Live Viewers: Offline")
+                m.write("Current Viewers: Offline")
         else
                 m.setBackgroundColor(colors.yellow)
                 m.clear()
                 m.write(streamid)
                 m.setCursorPos(1,4)
-                m.write("Live Viewers: ")
-                m.write(live)          
+                m.write("Current Viewers: ")
+                m.write(lobj.viewersCurrent)          
         end
         return live
 end
