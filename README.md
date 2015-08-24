@@ -25,7 +25,8 @@ Now, type `edit beampro` and you will see the config at the top of the script. T
 ## Configuration ##
 When you go and edit the beampro file, you will see this at the top:
 
-`----- EDITABLE VARIABLES. Only edit the below.
+```
+----- EDITABLE VARIABLES. Only edit the below.
 streamid = "darkgoldblade01" --- the beam.pro username
 SleepTime = 60 --- how often do you want to refresh in seconds? (default - 60)
 direction = "right" --- this is the direction the monitors are
@@ -34,6 +35,7 @@ line1 = "viewerCount" -- default viewerCount
 line2 = "followerCount" -- default followerCount
 line3 = "currentGame" -- default currentGame
 
------ DO NOT EDIT BELOW THIS LINE! ----`
+----- DO NOT EDIT BELOW THIS LINE! ----
+```
 
 You can edit them to your liking. Simple as that! 
