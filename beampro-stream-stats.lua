@@ -4,7 +4,7 @@ SleepTime = 60 --- how often do you want to refresh in seconds? (default - 60)
 direction = "right" --- this is the direction the monitors are
 
 ----- DO NOT EDIT BELOW THIS LINE! ----
-os.loadAPI("json-api")
+os.loadAPI("json")
 local m = peripheral.wrap(direction)
 m.setCursorPos(1,1)
 function getFollowers()
