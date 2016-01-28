@@ -37,12 +37,20 @@ function getCurrentGame(line)
         m.write("Currently Playing: ")
         m.write(game)
 end
--- function to get points
-function getPoints(line)
-        points = json.encodePretty(obj.user.points)
+-- function to get experience
+function getexperience(line)
+        experience = json.encodePretty(obj.user.xp)
         m.setCursorPos(1,line)
-        m.write("Points: ")
-        m.write(points)
+        m.write("experience: ")
+        m.write(experience)
+end
+
+-- function to get sparks
+function getsparks(line)
+        sparks = json.encodePretty(obj.user.sparks)
+        m.setCursorPos(1,line)
+        m.write("Sparks: ")
+        m.write(Sparks)
 end
 
 --Set the current position to 1,1
@@ -84,8 +92,10 @@ while true do
                 getViewerCount(4)
             elseif line2 == "currentGame" then
                 getCurrentGame(4)
-            elseif line2 == "points" then
-                getPoints(4)
+            elseif line2 == "experience" then
+                getexperience(4)
+            elseif line2 == "sparks" then
+                getSparks(4)
             else
                 getFollowers(4)    
             end
@@ -96,9 +106,12 @@ while true do
                 getViewerCount(5)
             elseif line3 == "currentGame" then
                 getCurrentGame(5)
-            elseif line3 == "points" then
-                getPoints(5)
-            else
+            elseif line3 == "experience" then
+                getexperience(5)
+            elseif line3 == "sparks" then
+                getsparks(5)
+             else
+                        
                 getCurrentGame(5)    
             end
         end
