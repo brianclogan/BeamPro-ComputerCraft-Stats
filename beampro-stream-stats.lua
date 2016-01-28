@@ -80,8 +80,10 @@ while true do
                 getViewerCount(3)
             elseif line1 == "currentGame" then
                 getCurrentGame(3)
-            elseif line1 == "points" then
-                getPoints(3)
+            elseif line1 == "experience" then
+                getexperience(3)
+            elseif line1 == "sparks" then
+                getSparks(3)
             else
                 getViewerCount(3)    
             end
